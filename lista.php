@@ -1,7 +1,18 @@
 <?php
 session_start();
-?>
 
+if (isset($_POST['lista'])) {
+    if (!empty($_session['koszyk'])) {
+        $koszyk = array_unique(array_merge(unserialize($_SESSION['koszyk']), $_POST['lista']));
+        $_session['koszyk'] = serialize($koszyk);
+    } else {
+        $_session['koszyk'] = serialize($_POST['lista']);
+    }
+    $message = "<p>wybrane produkty zostały umieszczone w koszyku </p>";
+} else {
+    $message = '';
+}
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -12,20 +23,7 @@ session_start();
 <p>
   <b>lista artykułów</b>
 </p>
-<?php
-if (isset($_POST['lista'])) {
-    if (!empty($_session['koszyk'])) {
-        $koszyk = array_unique(array_merge(
-            unserialize($_SESSION['koszyk']),
-            $_POST['lista']));
-
-        $_session['koszyk'] = serialize($koszyk);
-    } else {
-        $_session['koszyk'] = serialize($_POST['lista']);
-    }
-    echo "<p>wybrane produkty zostały umieszczone w koszyku </p>";
-}
-?>
+<?php echo $message ?>
 
 <form action="http://serwer2232156.home.pl/lista.php" method="post">
   <p>
@@ -43,9 +41,7 @@ if (isset($_POST['lista'])) {
       <option value="dysk twardy"> dysk twardy</option>
     </select>
   </p>
-  <p>
-    <input type="submit" value="wyślij">
-  </p>
+  <p><input type="submit" value="wyślij"></p>
 </form>
 <p><a href="koszyk.php"> przejdz do koszyka </a></p>
 </body>

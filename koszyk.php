@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+if (isset($_SESSION['koszyk'])) {
+    $products = unserialize($_SESSION['koszyk']);
+    $message = '';
+} else {
+    $products = [];
+    $message = 'Brak sesji';
+}
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -10,17 +19,19 @@ session_start();
 <body>
 
 <p><b> zawartość koszyka </b></p>
-<?php
 
-if (isset($_SESSION['koszyk'])) {
-    foreach (unserialize($_SESSION['koszyk']) as $produkt) {
-        echo "<li>" . $produkt . "</li>";
-    }
-} else {
-    echo "brak sesji";
-}
+<ul>
+    <?php foreach ($products as $product): ?>
+      <li>
+          <?php echo htmlEntities($product); ?>
+      </li>
+    <?php endforeach; ?>
+</ul>
 
-?>
-<p><a href="lista.php">przejdz do listy produktów </a></p>
+<?php echo htmlEntities($message); ?>
+
+<p>
+  <a href="lista.php">przejdz do listy produktów </a>
+</p>
 </body>
 </html>
