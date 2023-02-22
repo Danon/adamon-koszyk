@@ -25,7 +25,7 @@ if (isset($_POST['lista'])) {
 </p>
 <?php echo $message ?>
 
-<form action="http://serwer2232156.home.pl/lista.php" method="post">
+<form method="POST" action="lista.php">
   <p>
     <b><font size="4"><b> wybór produktu: </font></b>
     <br>
@@ -41,7 +41,9 @@ if (isset($_POST['lista'])) {
       <option value="dysk twardy"> dysk twardy</option>
     </select>
   </p>
-  <p><input type="submit" value="wyślij"></p>
+  <p>
+    <button type="submit">Dodaj</button>
+  </p>
 </form>
 <p><a href="koszyk.php"> przejdz do koszyka </a></p>
 </body>
