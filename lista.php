@@ -2,11 +2,11 @@
 session_start();
 
 if (isset($_POST['lista'])) {
-    if (!empty($_session['koszyk'])) {
+    if (!empty($_SESSION['koszyk'])) {
         $koszyk = array_unique(array_merge(unserialize($_SESSION['koszyk']), $_POST['lista']));
-        $_session['koszyk'] = serialize($koszyk);
+        $_SESSION['koszyk'] = serialize($koszyk);
     } else {
-        $_session['koszyk'] = serialize($_POST['lista']);
+        $_SESSION['koszyk'] = serialize($_POST['lista']);
     }
     $message = "<p>wybrane produkty zostały umieszczone w koszyku </p>";
 } else {
