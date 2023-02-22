@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['koszyk'])) {
-    $products = unserialize($_SESSION['koszyk']);
+    $products = $_SESSION['koszyk'];
     $message = '';
 } else {
     $products = [];
