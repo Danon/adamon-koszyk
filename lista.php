@@ -28,9 +28,11 @@ if (isset($_POST['lista'])) {
 ?>
 
 <form action="http://serwer2232156.home.pl/lista.php" method="post">
-  <p><b><font size="4"><b> wybór produktu: </font></b><br>
+  <p>
+    <b><font size="4"><b> wybór produktu: </font></b>
+    <br>
     <select name="lista[]" multiple="multiple" size="9">
-      <option value="monitor"> monitor </monitor>
+      <option value="monitor"> monitor</option>
       <option value="drukarka"> drukarka</option>
       <option value="klawiatura"> klawiatura</option>
       <option value="myszka"> myszka</option>
@@ -39,8 +41,11 @@ if (isset($_POST['lista'])) {
       <option value="słuchawki"> słuchawki</option>
       <option value="stacja dvd"> stacja dvd</option>
       <option value="dysk twardy"> dysk twardy</option>
-    </select></p>
-  <p><input type="submit" value="wyślij"></p>
+    </select>
+  </p>
+  <p>
+    <input type="submit" value="wyślij">
+  </p>
 </form>
 <p><a href="koszyk.php"> przejdz do koszyka </a></p>
 </body>
