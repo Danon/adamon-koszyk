@@ -11,15 +11,13 @@ if (isset($_SESSION['koszyk'])) {
 
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="pl">
 <head>
-  <title> koszyk </title>
+  <title>Koszyk</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-
-<p><b> zawartość koszyka </b></p>
-
+<p><b>Zawartość koszyka</b></p>
 <ul>
     <?php foreach ($products as $product): ?>
       <li>
@@ -27,11 +25,9 @@ if (isset($_SESSION['koszyk'])) {
       </li>
     <?php endforeach; ?>
 </ul>
-
 <?php echo htmlEntities($message); ?>
-
 <p>
-  <a href="lista.php">przejdz do listy produktów </a>
+  <a href="lista.php">Przejdź do listy produktów</a>
 </p>
 </body>
 </html>
